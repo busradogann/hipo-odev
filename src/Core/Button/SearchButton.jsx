@@ -13,16 +13,14 @@ export default class SearchButton extends Component {
 
     render() {
 
-        let url = `/image-list/${this.props.query}`;
+        let url = `/image-list?query=${this.props.query}`;
         if (this.props.selectedOption !== null) {
-            url = `${url}/${this.props.selectedOption}`;
+            url = `${url}&collectionID=${this.props.selectedOption}`;
         }
 
         return (
-            <Link to={url} style={{textDecoration: 'none'}}>
-                <p className={"search-button"}>
-                    <b>{"SEARCH"}</b>
-                </p>
+            <Link to={url} className={"search-button-context"}>
+                SEARCH
             </Link>
         )
     }

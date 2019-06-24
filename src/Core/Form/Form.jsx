@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import './_form.scss';
 
 import InputLocation from "../Location/InputLocation";
-import CustomDropdown from "../Collections/CustomDropdown";
-import SearchButton from "../Button/SearchButton";
+import CustomDropdown from "../../Core/Collections/CustomDropdown";
+import SearchButton from "../../Core/Button/SearchButton";
 
 const API_Collections = "https://api.unsplash.com/collections/featured/?client_id=930640e0b7713dca3ab1a0751b6f4b4741d1dfca6a72be2a071cddd6c1d0c92c";
 
@@ -37,8 +37,6 @@ export default class Form extends Component {
     };
 
     render() {
-        console.log(this.state)
-
         return(
             <div className={"form-wrapper"}>
                 <InputLocation

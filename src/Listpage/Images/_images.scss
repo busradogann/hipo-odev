@@ -1,0 +1,40 @@
+.images-wrapper {
+  width: 940px;
+  margin: 70px auto 70px;
+  columns: 3;
+
+  .image-wrapper {
+    margin: 0 auto;
+    padding-bottom: 20px;
+
+    .image-detail-button {
+      border: 0;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
+}
+
+.image-download-button {
+  width: 170px;
+  height: 45px;
+  position: relative;
+  margin: 8px 0px 0 230px;
+
+  border: 2px solid #2A2B8D;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: #2A2B8D;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+
+  background: url(../../download-arrow.svg) no-repeat 16px;
+  background-size: 16px;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Logo from './Logo/Logo';
-import Form from '../Homepage/Form/Form';
+import Form from '../Core/Form/Form';
 
 import './_homepage.scss';
 
