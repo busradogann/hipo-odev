@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './_custom-dropdown.scss';
-
+import "./_custom-dropdown.scss";
 
 export default class CustomDropdown extends Component {
     onCollectionChange = (event) => {
         this.props.onChange(event.target.value)
     }
-
     render() {
         const {optionArray} = this.props;
-
         return (
             <div className={"custom-dropdown-wrapper"}>
-                <div className={"shadow"}> </div>
+                <div className={"shadow"} />
                 <select className={"select-collections"}
                         onChange={this.onCollectionChange}>
                     {optionArray.map(option =>
@@ -23,13 +20,7 @@ export default class CustomDropdown extends Component {
                         </option>
                     )}
                 </select>
-
-                {this.props.selectedOption}
             </div>
         );
     }
 }
-// {
-//    onChange,
-//    optionArray
-// }

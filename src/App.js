@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import {
+    BrowserRouter,
+    Switch,
+    Route
+} from "react-router-dom";
 
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
-
-import Homepage from './Homepage/Homepage';
+import Homepage from "./Homepage/Homepage";
+import "./App.css";
 
 export default class App extends Component {
     render() {
