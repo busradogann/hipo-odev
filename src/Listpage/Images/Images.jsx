@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import './_images.scss';
-import Modal from 'react-responsive-modal';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import React, { Component } from "react";
+import Modal from "react-responsive-modal";
 
+import "./_images.scss";
 
-
+import MapContainer from "../../Detailpage/MapContainer";
 
 export default class Images extends Component {
     constructor(props) {
@@ -12,48 +11,79 @@ export default class Images extends Component {
 
         this.state = {
             open : false,
-            downloadImage : '',
+            selectedImageUrl : '',
+            downloadUrl : '',
+            profilePhoto : '',
+            name : '',
+            username : '',
         }
     };
 
-    onOpenModal = () => {
-        this.setState({ open: true });
+    onOpenModal = (image) => {
+        this.setState({
+            open : true,
+            selectedImageUrl : image.urls.small,
+            downloadUrl : image.links.download,
+            profilePhoto : image.user.profile_image.small,
+            name : image.user.name,
+            username : image.user.username
+        });
     };
 
     onCloseModal = () => {
         this.setState({ open: false });
     };
 
-    componentDidMount() {
-        function downloadButton() {
-            const url = `https://api.unsplash.com/photos/:id/download?client_id=930640e0b7713dca3ab1a0751b6f4b4741d1dfca6a72be2a071cddd6c1d0c92c`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => console.log({ downloadImage : data.results.id }));
-        }
-    }
-
     render() {
-        const {images} = this.props;
-        const { open } = this.state;
+
+        const {
+            images
+        } = this.props;
+
+        const {
+            open,
+            selectedImageUrl,
+            downloadUrl,
+            profilePhoto,
+            name,
+            username
+        } = this.state;
 
         return (
             <div className={"images-wrapper"}>
                 {images.map(image =>
-                    <div className={"image-wrapper"} key={image.id}>
-                        <button className={"image-detail-button"} onClick={this.onOpenModal}>
+                    <div className={"image-wrapper"}
+                         key={image.id}>
+                        <button className={"image-detail-button"}
+                                onClick={() => this.onOpenModal(image)}>
                             <img src={image.urls.small}
-                                 alt=""
-                            />
+                                 alt=""/>
                         </button>
-                        <Modal open={open} onClose={this.onCloseModal} center>
-                            <img src={image.urls.small} alt={''}
-                            />
-                            <div>
-                                <button className={"image-download-button"} onClick={this.downloadButton}>
-                                    Download
+
+                        <Modal className={"modal-wrapper"}
+                               open={open}
+                               onClose={this.onCloseModal}
+                               center>
+                            <img className={"modal-image"}
+                                 src={selectedImageUrl}
+                                 alt={""} />
+                            <div className={"modal-detail"}>
+                                <img className={"profile-photo"}
+                                     src={profilePhoto}
+                                     alt="" />
+                                <p className={"name"}>
+                                    {name}
+                                </p>
+                                <p className={"username"}>
+                                    @{username}
+                                </p>
+                                <button className={"image-download-button"}>
+                                    <a href={downloadUrl}
+                                       className={"image-download-button-context"}>
+                                        Download
+                                    </a>
                                 </button>
+                                <MapContainer />
                             </div>
                         </Modal>
                     </div>

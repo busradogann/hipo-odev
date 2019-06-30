@@ -18,23 +18,65 @@
   }
 }
 
-.image-download-button {
-  width: 170px;
-  height: 45px;
-  position: relative;
-  margin: 8px 0px 0 230px;
+.modal-wrapper {
+  height: 1000px;
+}
 
-  border: 2px solid #2A2B8D;
-  box-sizing: border-box;
-  border-radius: 10px;
-  color: #2A2B8D;
+.modal-image {
+  width: 700px;
+  height: 500px;
+  margin-bottom: 42px;
+}
 
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 25px;
+.modal-detail {
+  height: 250px;
+  display: grid;
+  grid-template-columns: 60px 150px 450px ;
+  grid-template-rows: 60px 60px 50px;
+  grid-gap: 0 20px;
 
-  background: url(../../download-arrow.svg) no-repeat 16px;
-  background-size: 16px;
+  .profile-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 40px;
+  }
+
+  .name {
+    font-weight: bold;
+  }
+
+  .username {
+    font-weight: bold;
+    color: #2A2B8D;
+    grid-column: 1/ -1;
+    margin-left: 79px;
+  }
+
+  .image-download-button {
+    width: 170px;
+    height: 45px;
+    position: relative;
+    grid-column: 3/ 4;
+    grid-row: 1/ 2;
+    place-self: self-end;
+
+    border: 2px solid #2A2B8D;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    background: url(../../download-arrow.svg) no-repeat 16px;
+    background-size: 16px;
+
+    .image-download-button-context {
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 25px;
+
+      color: #2A2B8D;
+
+      text-decoration: none;
+    }
+  }
 }
