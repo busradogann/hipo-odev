@@ -1,0 +1,17 @@
+.input-location {
+    width: 400px;
+    height: 50px;
+    position: relative;
+
+    background: #FFFFFF;
+    border-style: none;
+    border-radius: 4px;
+    text-indent: 14px;
+}
+
+input::placeholder {
+
+    font-family: Open Sans;
+    font-size: 14px;
+    line-height: 19px;
+}
