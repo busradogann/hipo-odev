@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 
 import Homepage from "./Homepage/Homepage";
-import "./App.css";
 
 export default class App extends Component {
     render() {
@@ -14,7 +13,9 @@ export default class App extends Component {
             <div className={"app"}>
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path="/" component={Homepage} />
+                        <Route exact
+                               path={"/"}
+                               component={Homepage}/>
                     </Switch>
                 </BrowserRouter>
             </div>
